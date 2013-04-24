@@ -1,6 +1,18 @@
 .center.hero-unit
-    %h1 Welcome to Jtrade
-    %h2
-    This is the main page of the wonderful app<br>
-    = link_to "Sign up now!", new_user_registration_path, |
-      class: "btn btn-large btn-primary"   |
+  .jumbotron
+  - if user_signed_in?
+    %h1 
+      = "Welcome, #{current_user.name}!"
+    %p.lead
+      You succesfully signed in!
+    = link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger'
+  - else
+    %h1 Welcome, new user!
+    %p.lead
+      You must sign in or sign up before you can access our super sweet,
+      top secret content.
+    .row-fluid
+      .span6
+        = link_to "Sign In", new_user_session_path, :class => "btn btn-success"
+      .span6
+        = link_to "Sign Up", new_user_registration_path, :class => "btn btn-success"
