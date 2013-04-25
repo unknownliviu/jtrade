@@ -1,5 +1,11 @@
 Jtrade::Application.routes.draw do
 
+  get "admins/show_users"
+
+  get "admins/show_products"
+
+  devise_for :admins
+
   resources :items
   devise_for :users
   resources :users, only:[:show,:edit,:update] 
