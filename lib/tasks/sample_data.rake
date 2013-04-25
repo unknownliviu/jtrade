@@ -30,8 +30,8 @@ end
 
 def make_items
   users = User.all(limit: 6)
-  5.times do
-    name = Faker::Name.name
+  10.times do
+    name = Faker::Lorem.sentence(1)
     description = Faker::Lorem.sentence(5)
     price = 42.42
     users.each { |user| user.items.create!(name: name, description: description, price: price) }

@@ -5,6 +5,13 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.paginate(page: params[:page])
+    @title = "All items"
+  end
+
+  def my_index
+    @items = current_user.items.paginate(page: params[:page])
+    @title = "My items"
+    render 'index'
   end
 
   # GET /items/1

@@ -9,7 +9,7 @@
           %li= link_to "Contact", contact_path
           - if user_signed_in?
             %li= link_to "#{current_user.name}'s profile", current_user
-            %li= link_to "Items", items_path
+            %li= link_to "My items", my_items_path
             %li= link_to "Sign out", destroy_user_session_path, :method => :delete
           - else
             %li
