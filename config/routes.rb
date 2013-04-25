@@ -1,14 +1,11 @@
 Jtrade::Application.routes.draw do
 
-  get "admins/show_users"
-
-  get "admins/show_products"
 
   devise_for :admins
 
   resources :items
   devise_for :users
-  resources :users, only:[:show,:edit,:update] 
+  resources :users, only:[:show,:index,:destroy] 
   root to: 'static_pages#home'
 
   match '/my_items' => 'items#my_index'

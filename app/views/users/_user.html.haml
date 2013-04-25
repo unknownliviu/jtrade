@@ -1,0 +1,4 @@
+%li
+  = link_to user.name, user
+  - if current_admin
+    | #{link_to "delete", user_path(user,page: params[:page]), method: :delete, data: { confirm: "You sure?" }}

@@ -3,7 +3,15 @@ namespace :db do
   task populate: :environment do
     make_users
     make_items
+    make_admins
   end
+end
+
+def make_admins
+  admin = Admin.create!(
+    email: "admin@jtrade.com",
+    password: "jacobs",
+    password_confirmation: "jacobs")
 end
 
 def make_users
