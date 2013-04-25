@@ -13,6 +13,9 @@
   %b Item owner:
   = @item.user.name
 %p
+  %b Photo:
+  =image_tag @item.photo.url  
+%p
   %b=link_to "Contact owner!", @item.user
 
 -if current_user == @item.user 
