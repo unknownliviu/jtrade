@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :items, dependent: :destroy
 
   VALID_PHONE_REGEX = /\d{7,15}/
-  validates :name , presence: true, length: {maximum: 20, minimum: 3}
+  validates :name , presence: true, length: {maximum: 50, minimum: 3}
   validates :phone, length: { maximum: 15 }, format: { with: VALID_PHONE_REGEX }
   validates :location, length: { maximum: 100 }
 
