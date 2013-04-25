@@ -1,5 +1,25 @@
 %h1= "#{current_user.name}'s profile page"
-%p 
-  ="Your email adress is #{current_user.email}"
+
+.center.hero-unit
+  %ul.nav.nav-tabs
+    %li
+      %a{"data-toggle" => "tab", :href => "#email"} Email
+    %li
+      %a{"data-toggle" => "tab", :href => "#phone"} Phone
+    %li
+      %a{"data-toggle" => "tab", :href => "#Location"} Location
+ 
+
+  .tab-content
+    #email.tab-pane.active
+      %p 
+        ="Your email adress is #{current_user.email}"
+    #phone.tab-pane
+      %p
+        ="Your phone number is #{current_user.phone}" 
+    #Location.tab-pane
+      %p
+        ="Your location is #{current_user.location}"   
 %p
-  =link_to "Edit my profile",edit_user_registration_path
+  %h4
+    =link_to "Edit my profile",edit_user_registration_path
