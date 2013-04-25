@@ -9,7 +9,7 @@ end
 
 def make_admins
   admin = Admin.create!(
-    email: "admin@jtrade.com",
+    email: "admin@admin.com",
     password: "jacobs",
     password_confirmation: "jacobs")
 end

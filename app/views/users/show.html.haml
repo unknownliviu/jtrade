@@ -1,5 +1,5 @@
 -provide(:title,"Profile")
-%h1= "#{current_user.name}'s profile page"
+%h1= "#{@user.name}'s profile page"
 
 .center.hero-unit
   %ul.nav.nav-tabs
@@ -14,15 +14,16 @@
   .tab-content
     #email.tab-pane.active
       %p 
-        ="Your email adress is #{current_user.email}"
+        ="#{@start} email adress is #{@user.email}"
     #phone.tab-pane
       %p
-        ="Your phone number is #{current_user.phone}" 
+        ="#{@start} phone number is #{@user.phone}" 
     #Location.tab-pane
       %p
-        ="Your location is #{current_user.location}"   
+        ="#{@start} location is #{@user.location}"   
 %p
   %h4
-    =link_to "Edit my profile",edit_user_registration_path
-    %br/
-    =link_to "Post new item", new_item_path
+    -if current_user? @user
+      =link_to "Edit my profile",edit_user_registration_path(current_user)
+      %br/
+      =link_to "Post new item", new_item_path

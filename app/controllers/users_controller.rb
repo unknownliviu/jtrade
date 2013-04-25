@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 	before_filter :authenticate_admin!, only: [:index,:destroy]
 
   def show
+    @user = User.find(params[:id])
+    @start = current_user?(@user) ? "Your": "#{@user.name}'s"
   end
 
   def index
