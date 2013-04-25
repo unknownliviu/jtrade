@@ -10,7 +10,10 @@
   %b Price:
   = @item.price
 %p
-  %b=link_to "Contact me!", @item.user
+  %b Item owner:
+  = @item.user.name
+%p
+  %b=link_to "Contact owner!", @item.user
 
 -if current_user == @item.user 
   = link_to 'Edit ', edit_item_path(@item)
