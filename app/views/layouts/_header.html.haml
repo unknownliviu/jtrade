@@ -12,5 +12,6 @@
             %li= link_to "My items", my_items_path
             %li= link_to "Sign out", destroy_user_session_path, :method => :delete
           - else
+            %li= link_to "Available Items",items_path
             %li
               = link_to "Sign in", new_user_session_path

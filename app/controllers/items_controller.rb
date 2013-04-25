@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: :index
   before_filter :correct_user , only: [:edit, :update, :destroy]
   # GET /items
   # GET /items.json
