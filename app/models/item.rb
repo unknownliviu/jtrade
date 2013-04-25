@@ -11,5 +11,7 @@ class Item < ActiveRecord::Base
       :url => "/system/:attachment/:id/:style/:filename"  
 
   default_scope order: 'items.created_at DESC'
-
+	validates_attachment :photo,
+  :content_type => { content_type:["image/jpg","image/png","image/jpeg"] },
+  :size => { :in => 0..1025.kilobytes }
 end
