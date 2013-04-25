@@ -1,23 +1,13 @@
-%h1 Listing items
+-provide(:title,"All items")
+%h1 All items
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th Price
-    %th
-    %th
-    %th
+= will_paginate
 
-  - @items.each do |item|
-    %tr
-      %td= item.name
-      %td= item.description
-      %td= item.price
-      %td= link_to 'Show', item
-      %td= link_to 'Edit', edit_item_path(item)
-      %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%ul.users
+  =render @items
 
-%br
+= will_paginate
 
-= link_to 'New Item', new_item_path
+
+%h3
+  = link_to 'Post new tem', new_item_path

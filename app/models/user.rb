@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :phone, :location
   # attr_accessible :title, :body
+  has_many :items, dependent: :destroy
 
   VALID_PHONE_REGEX = /\d{7,15}/
   validates :name , presence: true, length: {maximum: 20, minimum: 3}
