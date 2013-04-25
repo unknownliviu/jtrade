@@ -3,7 +3,7 @@ Jtrade::Application.routes.draw do
   resources :users, only:[:show,:edit,:update] 
   root to: 'static_pages#home'
 
-  match '/profile'   => 'users#show'
+  match '/profile'  => 'users#show'
   match '/about'    => 'static_pages#about'
   match '/contact'  => 'static_pages#contact' 
 end
