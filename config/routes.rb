@@ -1,4 +1,7 @@
 Jtrade::Application.routes.draw do
+  resources :items
+
+
   devise_for :users
   resources :users, only:[:show,:edit,:update] 
   root to: 'static_pages#home'
