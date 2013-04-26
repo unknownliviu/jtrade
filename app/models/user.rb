@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :items, dependent: :destroy
 
-  VALID_PHONE_REGEX = /\d{7,15}/
+  VALID_PHONE_REGEX = /\d{4,15}/
   validates :name , presence: true, length: {maximum: 50, minimum: 3}
   validates :phone, length: { maximum: 15 }, format: { with: VALID_PHONE_REGEX }
   validates :location, length: { maximum: 100 }
