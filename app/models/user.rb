@@ -11,8 +11,10 @@ class User < ActiveRecord::Base
   has_many :items, dependent: :destroy
 
   VALID_PHONE_REGEX = /\d{4,15}/
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@jacobs-university.de+\z/i
   validates :name , presence: true, length: {maximum: 50, minimum: 3}
   validates :phone, length: { maximum: 15 }, format: { with: VALID_PHONE_REGEX }
   validates :location, length: { maximum: 100 }
+  validates  :email, format: { with: VALID_EMAIL_REGEX }
 
 end

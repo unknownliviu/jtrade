@@ -16,7 +16,7 @@ end
 
 def make_users
   user = User.create!(name:     "Liviu the awesome",
-                       email:    "unknownliviu@gmail.com",
+                       email:    "foouser@jacobs-university.de",
                        phone:    "10876234567",
                        location: "la Aurora",
                        password: "foobar",
@@ -25,7 +25,7 @@ def make_users
 
   32.times do |n|
     name  = Faker::Name.name
-    email = "slave-#{n+1}@chucknorris.org"
+    email = "student-#{n+1}@jacobs-university.de"
     password  = "password"
     User.create!(name:     name,
                  email:    email,
