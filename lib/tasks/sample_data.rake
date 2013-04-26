@@ -2,8 +2,14 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     make_users
+    make_single_user
     make_items
     make_admins
+  end
+  desc "Fill with basic data"
+  task populate_basic: :environment do
+    make_admins
+    make_single_user
   end
 end
 
@@ -14,13 +20,17 @@ def make_admins
     password_confirmation: "jacobs")
 end
 
-def make_users
+def make_single_user
   user = User.create!(name:     "Liviu the awesome",
                        email:    "foouser@jacobs-university.de",
                        phone:    "10876234567",
                        location: "la Aurora",
                        password: "foobar",
                        password_confirmation: "foobar")
+end
+
+def make_users
+
   #admin.toggle!(:admin)
 
   32.times do |n|
