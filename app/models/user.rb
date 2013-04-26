@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
   validates :name , presence: true, length: {maximum: 50, minimum: 3}
   validates :phone, length: { maximum: 15 }, format: { with: VALID_PHONE_REGEX }
   validates :location, length: { maximum: 100 }
-  validates  :email, format: { with: VALID_EMAIL_REGEX }
+  validates :email, format: { with: VALID_EMAIL_REGEX }
 
 end
