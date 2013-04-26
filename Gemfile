@@ -13,6 +13,7 @@ gem "paperclip", "~> 3.0"  # upload photos
 
 group :development do
 	gem 'sqlite3'#, '1.3.5'
+	gem 'annotate'
 end
 
 group :assets do
