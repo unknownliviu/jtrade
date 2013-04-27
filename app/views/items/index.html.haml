@@ -10,4 +10,5 @@
 
 
 %h3
-  = link_to 'Post new tem', new_item_path
+  -if current_user
+    = link_to 'Post new item', new_item_path

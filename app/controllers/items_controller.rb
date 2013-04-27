@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_filter :authenticate_user!, except: :index
-  before_filter :correct_user , only: [:edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:my_index, :new, :create]
+  before_filter :correct_user , except: [:index, :my_index, :new, :create]
   # GET /items
   # GET /items.json
   def index
@@ -63,7 +63,13 @@ class ItemsController < ApplicationController
 
 private
   def correct_user
-    @item = current_user.items.find_by_id(params[:id])
-    redirect_to root_url if @item.nil?
+    if !current_user.nil?
+      @item = current_user.items.find_by_id(params[:id])
+    elsif !current_admin.nil?
+      @item = Item.find_by_id(params[:id])
+    else
+      authenticate_user!
+    end
+      redirect_to root_url if @item.nil?
   end
 end

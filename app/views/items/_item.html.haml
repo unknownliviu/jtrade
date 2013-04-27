@@ -3,6 +3,6 @@
   %span.timestamp
     Posted #{time_ago_in_words(item.created_at)} ago.  
 
-  - if current_user == item.user 
+  - if (current_user == item.user) || !current_admin.nil?
     | #{link_to "delete", item_path(item,page: params[:page]), method: :delete, data: { confirm: "You sure?" }} 
     | #{link_to "edit",edit_item_path(item)}
