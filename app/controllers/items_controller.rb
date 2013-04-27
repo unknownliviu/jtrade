@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_filter :authenticate_user!, only: [:my_index, :new, :create]
-  before_filter :correct_user , except: [:index, :my_index, :new, :create]
+  before_filter :authenticate_user!, only: [:my_index, :new, :create, :show]
+  before_filter :correct_user , except: [:index, :my_index, :new, :create, :show]
   # GET /items
   # GET /items.json
   def index
@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1.json
   def destroy
     @item.destroy
-    redirect_to items_url, notice:"Item deleted"
+    redirect_to items_url(page: params[:page]), notice:"Item deleted"
   end
 
 private
