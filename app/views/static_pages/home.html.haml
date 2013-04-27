@@ -4,7 +4,8 @@
     %h1 
       = "Welcome, #{current_user.name}!"
     %p.lead
-      = link_to "Here are our newest items available",items_path
+      = link_to "Here are our newest items available",   items_path
+      = link_to "Socialise! Find our site's users here!",users_path 
     = link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger'
   - else
     -if admin_signed_in?
@@ -12,6 +13,8 @@
         = "Welcome #{current_admin.email}"
       %p.lead
         = link_to "Manage users here", users_path
+        %br/
+        = link_to "Manage items here", items_path
     -else
       %h1 Welcome, new user!
       %p.lead
